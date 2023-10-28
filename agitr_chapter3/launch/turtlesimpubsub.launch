@@ -1,0 +1,11 @@
+<launch>
+  <include
+    file="$(find agitr_chapter3)/launch/turtlesimoperate.launch"
+  />
+  <node
+    pkg="agitr_chapter3"
+    type="subpose"
+    name="pose_subscriber"
+    output="screen"
+  />
+</launch>

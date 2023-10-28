@@ -16,8 +16,10 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 # Declare the executable, along with its source files.
 add_executable(pubvel src/pubvel.cpp)
 add_executable(subpose src/subpose.cpp)
+add_executable(pubvelsafe src/pubvelsafe.cpp)
 
 # Specify libraries against which to link.
 target_link_libraries(pubvel ${catkin_LIBRARIES})
 target_link_libraries(subpose ${catkin_LIBRARIES})
+target_link_libraries(pubvelsafe ${catkin_LIBRARIES})
 

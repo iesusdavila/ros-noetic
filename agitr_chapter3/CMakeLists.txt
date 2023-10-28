@@ -17,9 +17,10 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 add_executable(pubvel src/pubvel.cpp)
 add_executable(subpose src/subpose.cpp)
 add_executable(pubvelsafe src/pubvelsafe.cpp)
+add_executable(avoidcollision src/avoidcollision.cpp)
 
 # Specify libraries against which to link.
 target_link_libraries(pubvel ${catkin_LIBRARIES})
 target_link_libraries(subpose ${catkin_LIBRARIES})
 target_link_libraries(pubvelsafe ${catkin_LIBRARIES})
-
+target_link_libraries(avoidcollision ${catkin_LIBRARIES})

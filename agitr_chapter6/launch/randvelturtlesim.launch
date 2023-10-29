@@ -1,0 +1,14 @@
+<launch>
+ <node
+   pkg="turtlesim"
+   type="turtlesim_node"
+   name="turtlesim"
+   respawn="true"
+ />
+ <node
+   pkg="agitr_chapter3"
+   type="avoidcollision"
+   name="avoid_collision"
+   required="true"
+ />
+</launch>

@@ -1,0 +1,27 @@
+<launch>
+  <arg 
+    name="addturtle"
+    default="0"
+  />
+
+  <node
+    pkg="turtlesim"
+    type="turtlesim_node"
+    name="turtlesim"
+    respawn="true"
+  />
+
+  <node
+    pkg="agitr_chapter8_plus"
+    type="pubvel_toggle_plus"
+    name="pubvel_toggle_plus_node"
+    output="screen"
+  />
+
+  <node if="$(arg addturtle)"
+    pkg="agitr_chapter8_plus"
+    type="spawn_turtle_plus"
+    name="spawn_turtle_plus_node"
+    output="screen"
+  />
+</launch>

@@ -42,6 +42,7 @@ add_executable(improved_pubvel_toggle src/improved_pubvel_toggle.cpp)
 add_executable(pubvel_toggle1 src/pubvel_toggle.cpp)
 add_executable(pubvel_toggle_plus src/pubvel_toggle_plus.cpp)
 add_executable(spawn_turtle1 src/spawn_turtle.cpp)
+add_executable(spawn_turtle_plus src/spawn_turtle_plus.cpp)
 
 # Specify libraries against which to link.
 target_link_libraries(improved_pubvel_toggle ${catkin_LIBRARIES})
@@ -49,3 +50,4 @@ target_link_libraries(pubvel_toggle1 ${catkin_LIBRARIES})
 target_link_libraries(pubvel_toggle_plus ${catkin_LIBRARIES})
 add_dependencies(pubvel_toggle_plus ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
 target_link_libraries(spawn_turtle1 ${catkin_LIBRARIES})
+target_link_libraries(spawn_turtle_plus ${catkin_LIBRARIES})

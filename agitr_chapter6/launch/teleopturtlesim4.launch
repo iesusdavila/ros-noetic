@@ -1,0 +1,27 @@
+<launch>
+  <arg 
+    name="monitorpose"
+    default="1"
+  />
+
+  <node
+    pkg="turtlesim"
+    type="turtlesim_node"
+    name="turtlesim"
+    respawn="true"
+  />
+
+  <node if="$(arg monitorpose)"
+    pkg="agitr_chapter3"
+    type="avoidcollision"
+    name="avoid_collision"
+    output="screen"
+  />
+
+  <node unless="$(arg monitorpose)"
+    pkg="turtlesim"
+    type="turtle_teleop_key"
+    name="teleop_key"
+    output="screen"
+  />
+</launch>

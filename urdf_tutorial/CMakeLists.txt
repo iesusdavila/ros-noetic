@@ -190,10 +190,12 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-
+add_executable(teleop_urdf_tutorial_template src/teleop_urdf_tutorial_template.cpp)
 add_executable(urdf_tutorial_template src/urdf_tutorial_template.cpp)
 
+target_link_libraries(teleop_urdf_tutorial_template ${catkin_LIBRARIES} ncurses)
 target_link_libraries(urdf_tutorial_template ${catkin_LIBRARIES})
+
 
 
 

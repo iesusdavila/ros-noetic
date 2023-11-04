@@ -5,9 +5,18 @@
   <!-- Starting joint publisher node which will publish the joint values -->
   <node 
     pkg="urdf_tutorial" 
-    type="urdf_tutorial_template"
-    name="joint_publisher" 
-  /> 
+    type="urdf_tutorial_a"
+    name="joint_publisher"
+    output="screen"
+  />
+
+  <node
+    pkg="turtlesim"
+    type="turtle_teleop_key"
+    name="turtle_teleop_key"
+    output="screen" >
+    <remap from="/turtle1/cmd_vel" to="/teleop_values" />
+  </node>
   
   <!-- Starting robot state publish which will publish tf -->
   <node 

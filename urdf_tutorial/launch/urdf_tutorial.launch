@@ -7,7 +7,6 @@
     pkg="urdf_tutorial" 
     type="urdf_tutorial_template"
     name="joint_publisher" 
-    launch-prefix="xterm -e"
   /> 
   
   <!-- Starting robot state publish which will publish tf -->

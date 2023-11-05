@@ -5,7 +5,7 @@
   <!-- Starting joint publisher node which will publish the joint values -->
   <node 
     pkg="urdf_tutorial" 
-    type="urdf_tutorial_a"
+    type="urdf_tutorial_b"
     name="joint_publisher"
     output="screen"
   />

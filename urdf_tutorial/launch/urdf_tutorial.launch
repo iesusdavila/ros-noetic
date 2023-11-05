@@ -5,7 +5,13 @@
     default="1"
   />
 
-  <param name="robot_description" textfile="$(find mastering_ros_robot_description_pkg)/urdf/pan_tilt.urdf" />
+  <arg 
+    name="robotSelect"
+    default="1"
+  />
+
+  <param if="$(eval robotSelect==1)" name="robot_description" textfile="$(find mastering_ros_robot_description_pkg)/urdf/pan_tilt.urdf" />
+  <param if="$(eval robotSelect==2)" name="robot_description" textfile="$(find mastering_ros_robot_description_pkg)/urdf/seven_dof_arm.urdf" /> 
   
   <!-- Starting joint publisher node which will publish the joint values -->
   <node
@@ -15,11 +21,19 @@
     name="joint_publisher"
     output="screen"
   />
-
+  
   <node
     if="$(eval numberHW==2)"
     pkg="urdf_tutorial" 
     type="urdf_tutorial_b"
+    name="joint_publisher"
+    output="screen"
+  />
+
+  <node
+    if="$(eval numberHW==3)"
+    pkg="urdf_tutorial" 
+    type="urdf_tutorial_arm"
     name="joint_publisher"
     output="screen"
   />

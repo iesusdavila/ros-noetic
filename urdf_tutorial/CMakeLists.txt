@@ -193,12 +193,14 @@ include_directories(
 add_executable(teleop_urdf_tutorial_template src/teleop_urdf_tutorial_template.cpp)
 add_executable(urdf_tutorial_a src/urdf_tutorial_a.cpp)
 add_executable(urdf_tutorial_arm src/urdf_tutorial_arm.cpp)
+add_executable(urdf_tutorial_arm2 src/urdf_tutorial_arm2.cpp)
 add_executable(urdf_tutorial_b src/urdf_tutorial_b.cpp)
 add_executable(urdf_tutorial_template src/urdf_tutorial_template.cpp)
 
 target_link_libraries(teleop_urdf_tutorial_template ${catkin_LIBRARIES} ncurses)
 target_link_libraries(urdf_tutorial_a ${catkin_LIBRARIES})
 target_link_libraries(urdf_tutorial_arm ${catkin_LIBRARIES})
+target_link_libraries(urdf_tutorial_arm2 ${catkin_LIBRARIES})
 target_link_libraries(urdf_tutorial_b ${catkin_LIBRARIES})
 target_link_libraries(urdf_tutorial_template ${catkin_LIBRARIES})
 

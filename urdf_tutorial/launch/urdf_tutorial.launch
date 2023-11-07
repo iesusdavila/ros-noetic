@@ -47,6 +47,14 @@
   />
 
   <node
+    if="$(eval numberHW==5)"
+    pkg="urdf_tutorial" 
+    type="urdf_tutorial_arm3"
+    name="joint_publisher"
+    output="screen"
+  />
+
+  <node
     pkg="turtlesim"
     type="turtle_teleop_key"
     name="turtle_teleop_key"

@@ -13,6 +13,7 @@ double deltaTilt;
 double scale;
 double danger_factor;
 const double degree2rad = M_PI/180;
+const double mm2m = 0.001;
 int controlled_by_pan;
 int controlled_by_tilt;
 

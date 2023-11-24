@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<launch>
+  <!-- Importar el diseno de gazebo del modelo UR3 -->
+  <include file="$(find ur_gazebo)/launch/ur3.launch"/>
+
+  <!-- Llamar al ejecutable de follow_traj_wrap_server creado previamente -->
+  <node name="follow_traj_wrap_server" pkg="action_manager" type="follow_traj_wrap_server" output="screen" />
+
+  <!-- Llamar al ejecutable de ur3_follow_traj_client creado previamente -->
+  <node name="ur3_follow_traj_client" pkg="action_manager" type="ur3_follow_traj_client" output="screen" />
+
+
+</launch>

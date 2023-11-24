@@ -9,11 +9,20 @@ project(action_manager_iesus)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  rospy
   std_msgs
+  actionlib
+  actionlib_msgs
+  geometry_msgs
+  trajectory_msgs
+  control_msgs
+  message_generation
+  tf2
+  tf2_ros
 )
 
 ## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
+#find_package(Boost REQUIRED COMPONENTS system)
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -53,11 +62,13 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+ add_service_files(
+  FILES
+  set_point_to_point_trajectory.srv
+  move_robot_trajectory.srv
+  move_robot_trajectory_safe.srv
+  set_goal_tolerances.srv 
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -67,10 +78,13 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+ generate_messages(
+  DEPENDENCIES
+  std_msgs
+  trajectory_msgs
+  control_msgs
+  actionlib_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -105,6 +119,7 @@ catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES action_manager_iesus
 #  CATKIN_DEPENDS roscpp std_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs actionlib actionlib_msgs message_runtime tf2 tf2_ros trajectory_msgs control_msgs geometry_msgs
 #  DEPENDS system_lib
 )
 
@@ -133,6 +148,14 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/action_manager_iesus_node.cpp)
+
+add_executable(follow_traj_wrap_server src/follow_traj_wrap_server.cpp)
+add_dependencies(follow_traj_wrap_server  ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
+target_link_libraries(follow_traj_wrap_server  ${catkin_LIBRARIES})
+
+add_executable(ur3_follow_traj_client src/ur3_follow_traj_client.cpp)
+add_dependencies(ur3_follow_traj_client  ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
+target_link_libraries(ur3_follow_traj_client  ${catkin_LIBRARIES} )
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
